@@ -4,17 +4,44 @@
  */
 package telas;
 
+import construtores.Produtos;
+import dao.ProdutosDAO;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author vinic
  */
 public class telaListagem extends javax.swing.JFrame {
 
+    private void preencher(){
+        ProdutosDAO dao= new ProdutosDAO();
+        
+        ArrayList<Produtos> lista= dao.listar();
+        
+        DefaultTableModel tabela= (DefaultTableModel) tblTabela.getModel();
+         tblTabela.setRowSorter(new TableRowSorter(tabela));
+          tabela.setNumRows(0);
+          
+        for(Produtos p: lista){
+            Object[] o= new Object[]{
+              p.getId(),
+              p.getNome(),
+              p.getValor(),
+              p.getStatus()
+            };
+            
+            tabela.addRow(o);
+        }
+    }
     /**
      * Creates new form telaListagem
      */
     public telaListagem() {
         initComponents();
+         preencher();
     }
 
     /**
@@ -30,7 +57,7 @@ public class telaListagem extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblTabela = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -55,7 +82,7 @@ public class telaListagem extends javax.swing.JFrame {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -66,7 +93,7 @@ public class telaListagem extends javax.swing.JFrame {
                 "ID", "Nome", "Valor", "Status"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblTabela);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 310));
 
@@ -129,6 +156,6 @@ public class telaListagem extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblTabela;
     // End of variables declaration//GEN-END:variables
 }

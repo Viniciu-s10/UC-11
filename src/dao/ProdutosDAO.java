@@ -51,6 +51,26 @@ public class ProdutosDAO {
     }
     
     public ArrayList listar(){
-        return lista;
+        sql= "select*from produtos";
+        
+        try{
+            statement= this.c.prepareStatement(sql);
+            
+            set= statement.executeQuery();
+            
+           while(set.next()){
+               Produtos p= new Produtos();
+               
+                p.setId(set.getInt("ID"));
+                 p.setNome(set.getString("Nome"));
+                  p.setValor(set.getDouble("Valor"));
+                 p.setStatus(set.getString("Status"));
+                 
+                 lista.add(p);
+           }
+           return lista;
+        }catch(SQLException e){
+            return null;
+        }
     }
 }
