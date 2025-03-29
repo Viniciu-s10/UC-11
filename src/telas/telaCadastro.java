@@ -26,21 +26,79 @@ public class telaCadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtValor = new javax.swing.JTextField();
+        bttCadastrar = new javax.swing.JButton();
+        bttListagem = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Leilões TDS", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 36))); // NOI18N
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setText("Cadastro de Produtos");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Nome:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+        txtNome.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel1.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 290, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("Valor:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+
+        txtValor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 100, -1));
+
+        bttCadastrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        bttCadastrar.setText("Cadastar");
+        jPanel1.add(bttCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+
+        bttListagem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        bttListagem.setText("Listagem");
+        bttListagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttListagemActionPerformed(evt);
+            }
+        });
+        jPanel1.add(bttListagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorActionPerformed
+
+    private void bttListagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttListagemActionPerformed
+        telaListagem t= new telaListagem();
+         t.setVisible(true);
+    }//GEN-LAST:event_bttListagemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +136,13 @@ public class telaCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bttCadastrar;
+    private javax.swing.JButton bttListagem;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

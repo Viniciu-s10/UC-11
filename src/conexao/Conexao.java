@@ -4,10 +4,24 @@
  */
 package conexao;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 /**
  *
  * @author vinic
  */
 public class Conexao {
+    Connection c;
     
+    public Connection conectar(){
+        try{
+            c= DriverManager.getConnection("jdbc:mysql://localhost/uc11","root", 
+                    "R2d2/bb80");
+            return c;
+        }catch(SQLException e){
+            System.out.println("erro ao tentar conectar\n"+e.getMessage());
+            return null;
+        }
+    }
 }
