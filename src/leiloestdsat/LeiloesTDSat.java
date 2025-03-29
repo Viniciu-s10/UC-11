@@ -4,6 +4,8 @@
  */
 package leiloestdsat;
 
+import telas.telaCadastro;
+
 /**
  *
  * @author vinic
@@ -14,7 +16,9 @@ public class LeiloesTDSat {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        telaCadastro c= new telaCadastro();
+         c.setVisible(true);
     }
     
 }

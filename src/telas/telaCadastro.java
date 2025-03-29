@@ -4,6 +4,8 @@
  */
 package telas;
 
+import construtores.Produtos;
+import dao.ProdutosDAO;
 /**
  *
  * @author vinic
@@ -65,6 +67,11 @@ public class telaCadastro extends javax.swing.JFrame {
 
         bttCadastrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bttCadastrar.setText("Cadastar");
+        bttCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttCadastrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(bttCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
 
         bttListagem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -99,6 +106,18 @@ public class telaCadastro extends javax.swing.JFrame {
         telaListagem t= new telaListagem();
          t.setVisible(true);
     }//GEN-LAST:event_bttListagemActionPerformed
+
+    private void bttCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttCadastrarActionPerformed
+       String nome= txtNome.getText();
+        String valor= txtValor.getText();
+        
+        Produtos produtos= new Produtos();
+         produtos.setNome(nome);
+          produtos.setValor(Double.parseDouble(valor));
+          
+        ProdutosDAO p= new ProdutosDAO();
+         p.cadastrar(produtos);
+    }//GEN-LAST:event_bttCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
