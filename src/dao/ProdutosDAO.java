@@ -73,4 +73,30 @@ public class ProdutosDAO {
             return null;
         }
     }
+    
+    public void vender(int id){
+        sql = "update produtos set status= 'Vendido' where id= ? and status= 'A Venda'";
+        
+        try{
+            statement = this.c.prepareStatement(sql);
+            
+            statement.setInt(1, id);
+            
+            int linhas= statement.executeUpdate();
+             Produtos p= new Produtos();
+            
+            if (linhas> 0){
+                JOptionPane.showMessageDialog(null, "Produto "+p.getNome()+" Vendido"
+                        + "com Sucesso!");
+            }else{
+                JOptionPane.showMessageDialog(null, "Produto "+p.getNome()+" não pode"
+                        + "ser Vendido!");
+            }
+        }catch(SQLException e){
+            System.out.println("Erro ao tentar vender\n" + e.getMessage());
+             JOptionPane.showMessageDialog(null, "Ocorreu um Erro ao Tentar Executar "
+                     + "Venda!");
+    }
+}
+
 }
