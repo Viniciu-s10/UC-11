@@ -96,7 +96,29 @@ public class ProdutosDAO {
             System.out.println("Erro ao tentar vender\n" + e.getMessage());
              JOptionPane.showMessageDialog(null, "Ocorreu um Erro ao Tentar Executar "
                      + "Venda!");
-    }
+    }  
 }
-
+    
+    public void listarVendidos(){
+     sql= "select*from produtos where status= 'Vendido'";
+     
+     try{
+         statement= this.c.prepareStatement(sql);
+         
+         set= statement.executeQuery();
+         
+         while(set.next()){
+               Produtos p= new Produtos();
+               
+                p.setId(set.getInt("ID"));
+                 p.setNome(set.getString("Nome"));
+                  p.setValor(set.getDouble("Valor"));
+                 p.setStatus(set.getString("Status"));
+                 
+                 lista.add(p);
+           }
+     }catch(SQLException e){
+         System.out.println("erro ao tentar listar\n"+e.getMessage());
+     }
+    }
 }
