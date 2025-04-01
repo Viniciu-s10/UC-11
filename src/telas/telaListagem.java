@@ -58,6 +58,9 @@ public class telaListagem extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTabela = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
+        bttVender = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -95,7 +98,23 @@ public class telaListagem extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblTabela);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 310));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 500, 260));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Escolha ID do Produto:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        txtID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel2.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 80, -1));
+
+        bttVender.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        bttVender.setText("Vender");
+        bttVender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttVenderActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bttVender, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,6 +134,13 @@ public class telaListagem extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bttVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttVenderActionPerformed
+        int id= Integer.parseInt(txtID.getText());
+         ProdutosDAO p= new ProdutosDAO();
+         
+         p.vender(id);
+    }//GEN-LAST:event_bttVenderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,10 +178,13 @@ public class telaListagem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bttVender;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblTabela;
+    private javax.swing.JTextField txtID;
     // End of variables declaration//GEN-END:variables
 }

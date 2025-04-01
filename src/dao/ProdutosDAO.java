@@ -86,15 +86,13 @@ public class ProdutosDAO {
              Produtos p= new Produtos();
             
             if (linhas> 0){
-                JOptionPane.showMessageDialog(null, "Produto "+p.getNome()+" Vendido"
-                        + "com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Produto Vendido com Sucesso!");
             }else{
-                JOptionPane.showMessageDialog(null, "Produto "+p.getNome()+" não pode"
-                        + "ser Vendido!");
+                JOptionPane.showMessageDialog(null, "Produto não pode ser Vendido!");
             }
         }catch(SQLException e){
             System.out.println("Erro ao tentar vender\n" + e.getMessage());
-             JOptionPane.showMessageDialog(null, "Ocorreu um Erro ao Tentar Executar "
+             JOptionPane.showMessageDialog(null, "Ocorreu um Erro ao Tentar Executar"
                      + "Venda!");
     }
 }
