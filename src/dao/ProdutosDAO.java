@@ -73,8 +73,6 @@ public class ProdutosDAO {
             return null;
         }
     }
-<<<<<<< HEAD
-=======
     
     public void vender(int id){
         sql = "update produtos set status= 'Vendido' where id= ? and status= 'A Venda'";
@@ -98,6 +96,4 @@ public class ProdutosDAO {
                      + "Venda!");
     }
 }
-
->>>>>>> 96fa863 (metodo 'Vender'c)
 }
