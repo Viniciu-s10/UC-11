@@ -97,7 +97,7 @@ public class ProdutosDAO {
     }
 }
     
-    public void listarVendido(){
+    public ArrayList listarVendido(){
         sql= "select*from produtos where status= 'Vendido'";
         
         try{
@@ -115,8 +115,11 @@ public class ProdutosDAO {
                  
                  lista.add(p);
            }
+           return lista;
         }catch(SQLException e){
-            
+            System.out.println(e.getMessage());
+            return null;
         }
     }
+
 }

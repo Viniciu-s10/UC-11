@@ -14,15 +14,15 @@ import javax.swing.table.TableRowSorter;
  *
  * @author vinic
  */
-public class telaListagem extends javax.swing.JFrame {
-
+public class telaVendidos extends javax.swing.JFrame {
+    
     private void preencher(){
         ProdutosDAO dao= new ProdutosDAO();
         
-        ArrayList<Produtos> lista= dao.listar();
+        ArrayList<Produtos> lista= dao.listarVendido();
         
-        DefaultTableModel tabela= (DefaultTableModel) tblTabela.getModel();
-         tblTabela.setRowSorter(new TableRowSorter(tabela));
+        DefaultTableModel tabela= (DefaultTableModel) tblVendidos.getModel();
+         tblVendidos.setRowSorter(new TableRowSorter(tabela));
           tabela.setNumRows(0);
           
         for(Produtos p: lista){
@@ -36,10 +36,11 @@ public class telaListagem extends javax.swing.JFrame {
             tabela.addRow(o);
         }
     }
+
     /**
-     * Creates new form telaListagem
+     * Creates new form telaVendidos
      */
-    public telaListagem() {
+    public telaVendidos() {
         initComponents();
          preencher();
     }
@@ -57,74 +58,42 @@ public class telaListagem extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblTabela = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
-        bttVender = new javax.swing.JButton();
-        bttLista = new javax.swing.JButton();
+        tblVendidos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Leilões TDS", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 36))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Lista de Produtos Cadastrados");
+        jLabel1.setText("Produtos Vendidos");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(143, 143, 143)
                 .addComponent(jLabel1)
-                .addGap(83, 83, 83))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jLabel1)
         );
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblTabela.setModel(new javax.swing.table.DefaultTableModel(
+        tblVendidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "ID", "Nome", "Valor", "Status"
             }
         ));
-        jScrollPane1.setViewportView(tblTabela);
+        jScrollPane1.setViewportView(tblVendidos);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 500, 220));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Escolha ID do Produto:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        txtID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel2.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 80, -1));
-
-        bttVender.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        bttVender.setText("Vender");
-        bttVender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttVenderActionPerformed(evt);
-            }
-        });
-        jPanel2.add(bttVender, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
-
-        bttLista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        bttLista.setText("Produtos Vendidos");
-        bttLista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttListaActionPerformed(evt);
-            }
-        });
-        jPanel2.add(bttLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 310));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,18 +114,6 @@ public class telaListagem extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bttVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttVenderActionPerformed
-        int id= Integer.parseInt(txtID.getText());
-         ProdutosDAO p= new ProdutosDAO();
-         
-         p.vender(id);
-    }//GEN-LAST:event_bttVenderActionPerformed
-
-    private void bttListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttListaActionPerformed
-        telaVendidos v= new telaVendidos();
-         v.setVisible(true);
-    }//GEN-LAST:event_bttListaActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -174,33 +131,29 @@ public class telaListagem extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(telaListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telaVendidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(telaListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telaVendidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(telaListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telaVendidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(telaListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telaVendidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new telaListagem().setVisible(true);
+                new telaVendidos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bttLista;
-    private javax.swing.JButton bttVender;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblTabela;
-    private javax.swing.JTextField txtID;
+    private javax.swing.JTable tblVendidos;
     // End of variables declaration//GEN-END:variables
 }
