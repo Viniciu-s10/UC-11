@@ -61,6 +61,7 @@ public class telaListagem extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
         bttVender = new javax.swing.JButton();
+
         bttLista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -99,6 +100,7 @@ public class telaListagem extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblTabela);
 
+
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 500, 220));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -115,6 +117,7 @@ public class telaListagem extends javax.swing.JFrame {
                 bttVenderActionPerformed(evt);
             }
         });
+
         jPanel2.add(bttVender, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
         bttLista.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -193,7 +196,9 @@ public class telaListagem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
     private javax.swing.JButton bttLista;
+
     private javax.swing.JButton bttVender;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
