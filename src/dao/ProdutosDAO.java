@@ -96,4 +96,29 @@ public class ProdutosDAO {
                      + "Venda!");
     }
 }
+    
+    public ArrayList listarVendido(){
+        sql= "select*from produtos where status= 'Vendido'";
+        
+        try{
+            statement= this.c.prepareStatement(sql);
+            
+            set= statement.executeQuery();
+            
+           while(set.next()){
+               Produtos p= new Produtos();
+               
+                p.setId(set.getInt("ID"));
+                 p.setNome(set.getString("Nome"));
+                  p.setValor(set.getDouble("Valor"));
+                 p.setStatus(set.getString("Status"));
+                 
+                 lista.add(p);
+           }
+           return lista;
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
 }
